@@ -44,7 +44,40 @@ This guide will walk you through the process of creating a WhatsApp bot using th
 
 - Make sure WhatsApp is added to your App.
 - You begin with a test number that you can use to send messages to up to 5 numbers.
-- Go to API Setup and locate the test number from which you will be sending messages.
+- Here is the App manifest 
+{
+    "display_information": {
+        "name": "HY"
+    },
+    "features": {
+        "bot_user": {
+            "display_name": "HY",
+            "always_online": true
+        }
+    },
+    "oauth_config": {
+        "scopes": {
+            "bot": [
+                "app_mentions:read",
+                "chat:write",
+                "im:history",
+                "users:read"
+            ]
+        }
+    },
+    "settings": {
+        "event_subscriptions": {
+            "request_url": "https://f526-148-252-141-35.ngrok-free.app/slack/events",
+            "bot_events": [
+                "app_mention",
+                "message.im"
+            ]
+        },
+        "org_deploy_enabled": false,
+        "socket_mode_enabled": false,
+        "token_rotation_enabled": false
+    }
+}
 - Here, you can also add numbers to send messages to. Enter your **own WhatsApp number**.
 - You will receive a code on your phone via WhatsApp to verify your number.
 
